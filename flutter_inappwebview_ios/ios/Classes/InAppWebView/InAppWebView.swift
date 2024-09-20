@@ -1429,7 +1429,7 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate,
         }
     }
 
-    #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 180000 // iOS 18, XCode 16 or greater
+    #if compiler(>=6)
         public override func evaluateJavaScript(_ javaScriptString: String, completionHandler: (@MainActor @Sendable (Any?, (any Error)?) -> Void)? = nil) {
             if let applePayAPIEnabled = settings?.applePayAPIEnabled, applePayAPIEnabled {
                 if let completionHandler = completionHandler {
